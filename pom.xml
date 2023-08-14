@@ -19,11 +19,17 @@
         <artifactId>asm</artifactId>
         <version>9.5</version>
     </dependency>
+    <dependency>
+        <groupId>org.ow2.asm</groupId>
+        <artifactId>asm-commons</artifactId>
+        <version>9.4</version>
+    </dependency>
 </dependencies>
 
     <build>
         <finalName>agent</finalName>
         <plugins>
+            <!--插件实现了自动添加META-INF/MANIFEST.MF 指定了Agent的入口类和运行时能力-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -42,6 +48,7 @@
                     </archive>
                 </configuration>
             </plugin>
+            <!--插件实现了打包Agent依赖,可以使Agent独立运行-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
